@@ -7,6 +7,7 @@ old_sound_rabbit_mq:
             class: App\Rabbit\MessagingProducer
             connection:       default
             exchange_options: { name: 'qMessages', type: direct }
+            queue_options:    { name: 'qMessages'}
 #    consumers:
 #        task:
 #            connection:       default
