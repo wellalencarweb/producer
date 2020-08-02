@@ -20,8 +20,8 @@ class MessageController
      */
     public function createMessages($numberOfMessages): JsonResponse
     {
-        $this->messageService->createMessage($numberOfMessages);
+        $messages = $this->messageService->createMessage($numberOfMessages);
 
-        return new JsonResponse(['status' => 'Sent!']);
+        return new JsonResponse($messages);
     }
 }

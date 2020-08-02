@@ -15,8 +15,9 @@ class MessageService
         $this->messagingProducer = $messagingProducer;
     }
 
-    public function createMessage(int $numberOfUsers): JsonResponse
+    public function createMessage(int $numberOfUsers): array
     {
+        $messages = [];
         $faker = Factory::create();
 
         for ($i=0; $i<$numberOfUsers; $i++) {
@@ -27,8 +28,9 @@ class MessageService
             ]);
 
             $this->messagingProducer->publish($message);
+            $messages[] = json_decode($message);
         }
 
-        return new JsonResponse(['status' => 'Sent!']);
+        return ['messages' => $messages];
     }
 }
