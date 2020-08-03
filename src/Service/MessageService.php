@@ -22,8 +22,9 @@ class MessageService
 
         for ($i=0; $i<$numberOfUsers; $i++) {
             $message = json_encode([
-                'sender' => $faker->companyEmail,
-                'receiver' => $faker->email,
+                'uuid' => $faker->uuid,
+                'name' => $faker->name,
+                'companyEmail' => $faker->companyEmail,
                 'message' => $faker->text,
             ]);
 
